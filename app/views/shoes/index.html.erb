@@ -1,25 +1,20 @@
 <h1>All shoes</h1>
+
+
+<div class="row">
 <% @shoes.each do |shoe| %>
-  <h2><%= shoe.name %></h2>
-  <!-- 
-  Display all images from the has_many images association
-  images: <%= shoe.images %>
-  Display one image from the has_many images association
-  first image: <%= shoe.images[0] %>
-  Display the url from one image from the has_many association
-  first image url: <%= shoe.images[0].url %>
-  Display the image as an <img> tag from one image from the has_many association
-  <p>First image:</p> <img src="<%= shoe.images[0].url %>" width="200" />
-  -->
-
-  <!-- Display all images as <img> tags using a loop -->
-  <% shoe.images.each do |image| %>
-    <img src="<%= image.url %>" width="200" />
-  <% end %>
-
-  <p>Brand: <%= shoe.brand.name %></p>
-
-  <p>Size: <%= shoe.size %></p>
+  <div class="col-4">
+    <div class="card">
+      <img src="<%= shoe.images[0].url %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= shoe.name %></h5>
+        <p class="card-text">Brand: <%= shoe.brand.name %></p>
+        <p class="card-text">Size: <%= shoe.size %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
+  
 
-<a href="/shoes/<%= shoe.id %>">More info</a>
