@@ -3,9 +3,4 @@ class ShoesController < ApplicationController
     @shoes = Shoe.all
     render :index
   end
-
-  def show
-    @shoes = Shoe.find_by(id: params[:id])
-    render :show
-  end
 end
